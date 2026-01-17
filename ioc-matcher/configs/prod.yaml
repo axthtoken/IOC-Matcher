@@ -1,0 +1,63 @@
+app:
+  name: ioc-matcher
+  env: prod
+
+logging:
+  level: INFO
+  format: json
+  include_stacktraces: false
+
+paths:
+  data_dir: /var/lib/ioc-matcher
+  ioc_store: /var/lib/ioc-matcher/iocs
+  output_dir: /var/lib/ioc-matcher/output
+  cache_dir: /var/lib/ioc-matcher/cache
+
+inputs:
+  formats:
+    - csv
+    - txt
+    - json
+    - jsonl
+  stix_enabled: false
+
+ioc:
+  default_confidence: 0.7
+  default_severity: medium
+  max_iocs: 1000000
+  dedupe: true
+
+matching:
+  text_scan:
+    enabled: true
+    max_line_bytes: 1048576
+    max_event_bytes: 2097152
+    allow_substring_domains: false
+    allow_substring_urls: false
+
+output:
+  format: jsonl
+  include_event: false
+  include_event_fields:
+    - timestamp
+    - host
+    - user
+    - process
+  redact:
+    enabled: true
+    fields:
+      - password
+      - authorization
+      - cookie
+      - token
+      - api_key
+      - secret
+
+api:
+  enabled: true
+  host: 0.0.0.0
+  port: 8080
+  api_key: ""
+  cors:
+    enabled: false
+    allow_origins: []
