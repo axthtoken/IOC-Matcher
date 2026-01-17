@@ -1,0 +1,76 @@
+{
+  "type": "bundle",
+  "id": "bundle--2d3e4c2f-7b6c-4d1a-9e5d-7a3c5f6b1e21",
+  "objects": [
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8b4f8e2a-2d91-4c8b-9d8f-53b2c0c55b11",
+      "created": "2026-01-17T00:00:00Z",
+      "modified": "2026-01-17T00:00:00Z",
+      "name": "Test domain",
+      "indicator_types": ["malicious-activity"],
+      "pattern_type": "stix",
+      "pattern": "[domain-name:value = 'evil-example.test']",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "labels": ["phishing", "test"],
+      "confidence": 70
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1c9e3f1c-7af5-4b2b-8a75-76c0e8d5c8a9",
+      "created": "2026-01-17T00:00:00Z",
+      "modified": "2026-01-17T00:00:00Z",
+      "name": "Test URL",
+      "indicator_types": ["malicious-activity"],
+      "pattern_type": "stix",
+      "pattern": "[url:value = 'http://evil-example.test/login']",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "labels": ["phishing", "test"],
+      "confidence": 80
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--5e1c0cc7-2f16-4d2a-9b6f-5c8c6d0dd04f",
+      "created": "2026-01-17T00:00:00Z",
+      "modified": "2026-01-17T00:00:00Z",
+      "name": "Test IPv4",
+      "indicator_types": ["malicious-activity"],
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value = '203.0.113.10']",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "labels": ["c2", "test"],
+      "confidence": 60
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a2c1b9f3-6a3c-4f9e-8b25-3d0e8b0b3b6f",
+      "created": "2026-01-17T00:00:00Z",
+      "modified": "2026-01-17T00:00:00Z",
+      "name": "Test CIDR",
+      "indicator_types": ["malicious-activity"],
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value ISSUBSET '203.0.113.0/24']",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "labels": ["network", "test"],
+      "confidence": 55
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0b7b5c6e-4c9b-4a5c-9f4e-9a1f6b7c8d90",
+      "created": "2026-01-17T00:00:00Z",
+      "modified": "2026-01-17T00:00:00Z",
+      "name": "Test SHA-256",
+      "indicator_types": ["malicious-activity"],
+      "pattern_type": "stix",
+      "pattern": "[file:hashes.'SHA-256' = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08']",
+      "valid_from": "2026-01-01T00:00:00Z",
+      "labels": ["hash", "test"],
+      "confidence": 50
+    }
+  ]
+}
