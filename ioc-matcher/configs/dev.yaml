@@ -1,0 +1,54 @@
+app:
+  name: ioc-matcher
+  env: dev
+
+logging:
+  level: DEBUG
+  format: pretty
+  include_stacktraces: true
+
+paths:
+  data_dir: ./data
+  ioc_store: ./data/iocs-dev
+  output_dir: ./data/output-dev
+  cache_dir: ./data/cache-dev
+
+inputs:
+  formats:
+    - csv
+    - txt
+    - json
+    - jsonl
+  stix_enabled: false
+
+ioc:
+  default_confidence: 0.5
+  default_severity: low
+  max_iocs: 200000
+  dedupe: true
+
+matching:
+  text_scan:
+    enabled: true
+    max_line_bytes: 2097152
+    max_event_bytes: 4194304
+    allow_substring_domains: true
+    allow_substring_urls: true
+
+output:
+  format: jsonl
+  include_event: true
+  redact:
+    enabled: false
+    fields: []
+
+api:
+  enabled: true
+  host: 127.0.0.1
+  port: 8080
+  api_key: dev-local
+  cors:
+    enabled: true
+    allow_origins:
+      - http://localhost:3000
+      - http://127.0.0.1:3000
